@@ -1,16 +1,16 @@
 # kafka_docker
-Dockerfile for Apache Kafka http://kafka.apache.org/>
+- Dockerfile for Apache Kafka http://kafka.apache.org/>
 
 The image is available directly from Docker Hub via 
 
 ## Tags
 Currently only 2.11-1.1.0 is available.
-2.11-1.1.0
+- 2.11-1.1.0
 
 ## Pre-Requisites
- Docker and docker-compose are installed on linux platform.
+ - Docker and docker-compose are installed on linux platform.
  
- Modify below 4 environment args in docker-compose.yaml/docker-compose.single.yaml: 
+ - Modify below 4 environment args in docker-compose.yaml/docker-compose.single.yaml: 
  
       KAFKA_PORT: 9092
       
@@ -20,7 +20,7 @@ Currently only 2.11-1.1.0 is available.
       
       KAFKA_LISTENERS: PLAINTEXT://:9092
  
- Also you can customize your own kafka config env, you can add environment args in  docker-compose.yaml/docker-compose.single.yaml; Below are all of the available env args which can be customized and its default value : e.g. KAFKA_NUM_IO_THREADS is num.io.threads in kafka server.properties.
+ - Also you can customize your own kafka config env, you can add environment args in  docker-compose.yaml/docker-compose.single.yaml; Below are all of the available env args which can be customized and its default value : e.g. KAFKA_NUM_IO_THREADS is num.io.threads in kafka server.properties.
  
 ENV KAFKA_BROKER_ID 0
 
@@ -58,11 +58,11 @@ ENV KAFKA_TRANSACTION_STATE_LOG_MIN_ISR 3
 
 ## Usages
 
-Start a fault cluster in a server: docker-compose up -f docker-compose.yaml -d
+- Start a fault cluster in a server: docker-compose up -f docker-compose.yaml -d
 
-Start a cluster in different box: docker-compose up -f docker-compose.single.yaml -d
+- Start a cluster in different box: docker-compose up -f docker-compose.single.yaml -d
 
-After starting cluster, please run get-broker-list.sh <kafka-container-name> to match kafka container hostname to its container id.
+- After starting cluster, please run get-broker-list.sh <kafka-container-name> to match kafka container hostname to its container id.
 
 ## Create a topic
 
