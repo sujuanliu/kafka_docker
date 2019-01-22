@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  kafka0:
+    image: kafka:2.11-1.1.0
+    hostname: kafka0
+    ports:
+     - "9093:9093"
+    container_name: kafka0
+    environment:
+      KAFKA_PORT: 9093
+      KAFKA_ZOOKEEPER_CONNECT: zk1:2181,zk2:2182,zk3:2183
+      KAFKA_BROKER_ID: 0
+      KAFKA_LISTENERS: PLAINTEXT://:9093
+    volumes:
+      - /data/logs/kafka0:/tmp/kafka-logs
+  kafka1:
+    image: kafka:2.11-1.1.0
+    hostname: kafka1
+    ports:
+     - "9094:9094"
+    container_name: kafka1
+    environment:
+      KAFKA_PORT: 9094
+      KAFKA_ZOOKEEPER_CONNECT: k1:2181,zk2:2182,zk3:2183
+      KAFKA_BROKER_ID: 1
+      KAFKA_LISTENERS: PLAINTEXT://:9094
+    volumes:
+      - /data/logs/kafka1:/tmp/kafka-logs
+  kafka2:
+    image: kafka:2.11-1.1.0
+    hostname: kafka2
+    ports:
+     - "9095:9095"
+    container_name: kafka2
+    environment:
+      KAFKA_PORT: 9095
+      KAFKA_ZOOKEEPER_CONNECT: k1:2181,zk2:2182,zk3:2183
+      KAFKA_BROKER_ID: 2
+      KAFKA_LISTENERS: PLAINTEXT://:9095
+    volumes:
+      - /data/logs/kafka2:/tmp/kafka-logs
